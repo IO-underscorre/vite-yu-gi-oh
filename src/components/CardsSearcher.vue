@@ -1,4 +1,5 @@
 <script>
+import CardContainer from './CardContainer.vue';
 import SearcherFilters from './SearcherFilters.vue';
 
 export default {
@@ -6,6 +7,7 @@ export default {
 
     components: {
         SearcherFilters,
+        CardContainer
     }
 }
 </script>
@@ -31,6 +33,7 @@ export default {
 
         <ul class="cards-list">
             <li>
+                <CardContainer cardName="" cardArchetype="" cardImg="" />
             </li>
         </ul>
     </div>
