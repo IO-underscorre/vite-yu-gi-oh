@@ -1,11 +1,18 @@
 <script>
+import SearcherFilters from './SearcherFilters.vue';
+
 export default {
     name: 'CardsSearcher',
 
+    components: {
+        SearcherFilters,
+    }
 }
 </script>
 
 <template>
+    <SearcherFilters />
+
     <div class="cards-founded-container">
         <div class="cards-list-settings">
             <b>
