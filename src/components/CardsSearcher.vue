@@ -93,7 +93,8 @@ export default {
         <template v-if="!store.cardSearchError && !store.searchParametersCallError">
             <ul class="cards-list">
                 <li v-for="card in getCurrentShownCards" :key="card.id">
-                    <CardContainer :cardName="card.name" :cardArchetype="card.archetype" cardImg="" />
+                    <CardContainer :cardName="card.name" :cardArchetype="card.archetype"
+                        :cardImg="card.card_images[0].image_url" />
                 </li>
             </ul>
 
