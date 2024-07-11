@@ -31,6 +31,7 @@ export default {
                 axios.get(completeApiURL).then(callReturn => {
                     store.cardsSearchResult = callReturn.data.data;
                     this.pageNumber = 0;
+                    store.cardSearchError = false;
                 }).catch(error => {
                     store.cardSearchError = true;
                 });
@@ -89,7 +90,7 @@ export default {
             </div>
         </div>
 
-        <template v-if="!cardSearchError && !store.searchParametersCallError">
+        <template v-if="!store.cardSearchError && !store.searchParametersCallError">
             <ul class="cards-list">
                 <li v-for="card in getCurrentShownCards" :key="card.id">
                     <CardContainer :cardName="card.name" :cardArchetype="card.archetype" cardImg="" />
