@@ -32,15 +32,21 @@ export default {
                 });
             }
         }
+    },
+
+    computed: {
+        shouldFiltersBeDisabled() {
+            return store.searchParametersCallError || !store.isApiBeenCalledForFilters ? true : false;
+        }
     }
 }
 </script>
 
 <template>
-    <SearcherFilters :archetypes="store.archetypesList" :searchParametersError="store.searchParametersCallError"
+    <SearcherFilters :archetypes="store.archetypesList" :isFilterDisabled="shouldFiltersBeDisabled"
         @search="getFilteredCards" />
 
-    <div class="cards-founded-container">
+    <div class="cards-founded-container" v-show="store.isApiBeenCalledForFilters">
         <div class="cards-list-settings">
             <b>
                 Found placeholder cards

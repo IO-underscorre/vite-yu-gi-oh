@@ -27,6 +27,7 @@ export default {
       }).catch(error => {
         store.searchParametersCallError = true;
       });
+      store.isApiBeenCalledForFilters = true;
     }
   },
 

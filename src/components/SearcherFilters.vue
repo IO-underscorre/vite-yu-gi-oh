@@ -10,14 +10,14 @@ export default {
 
     props: {
         archetypes: Array,
-        searchParametersError: Boolean
+        isFilterDisabled: Boolean
     }
 }
 </script>
 
 <template>
     <menu class="searcher-filters">
-        <li class="filter-option-group" :class="{ disabled: searchParametersError }">
+        <li class="filter-option-group" :class="{ disabled: isFilterDisabled }">
             <label for="filter-archrtype">Archetype</label>
             <span></span>
             <select id="filter-archrtype" placeholder="Select a card archetype" v-model="currentArchetypeFilter"
