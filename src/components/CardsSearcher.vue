@@ -49,7 +49,7 @@ export default {
     <div class="cards-founded-container" v-show="store.isApiBeenCalledForFilters">
         <div class="cards-list-settings">
             <b>
-                Found placeholder cards
+                Found {{ store.cardsSearchResult.length }} cards
             </b>
 
             <div>
@@ -62,11 +62,19 @@ export default {
             </div>
         </div>
 
-        <ul class="cards-list">
-            <li>
-                <CardContainer cardName="" cardArchetype="" cardImg="" />
-            </li>
-        </ul>
+        <template v-if="!cardSearchError && !store.searchParametersCallError">
+            <ul class="cards-list">
+                <li v-for="card in store.cardsSearchResult" :key="card.id">
+                    <CardContainer :cardName="card.name" :cardArchetype="card.archetype" cardImg="" />
+                </li>
+            </ul>
+        </template>
+        <template v-else>
+            <strong class="error-message">
+                Something is gone wrong,<br>
+                try refreshing the page!
+            </strong>
+        </template>
     </div>
 </template>
 
