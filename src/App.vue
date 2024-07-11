@@ -1,6 +1,9 @@
 <script>
+import { store } from './store';
+
 import AppHeader from './components/AppHeader.vue';
 import CardsSearcher from './components/CardsSearcher.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
@@ -8,6 +11,27 @@ export default {
   components: {
     AppHeader,
     CardsSearcher
+  },
+
+  data() {
+    return {
+      store
+    }
+  },
+
+  methods: {
+    getArchetypes() {
+      axios.get(store.apiURL + 'archetypes.php').then(callReturn => {
+        store.archetypesList = callReturn.data;
+        store.searchParametersCallError = false;
+      }).catch(error => {
+        store.searchParametersCallError = true;
+      });
+    }
+  },
+
+  created() {
+    this.getArchetypes();
   }
 }
 </script>
