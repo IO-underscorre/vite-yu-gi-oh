@@ -3,6 +3,7 @@ import { store } from '../store';
 
 import CardContainer from './CardContainer.vue';
 import SearcherFilters from './SearcherFilters.vue';
+import axios from 'axios';
 
 export default {
     name: 'CardsSearcher',
@@ -15,6 +16,21 @@ export default {
     data() {
         return {
             store
+        }
+    },
+
+    methods: {
+        getFilteredCards(archetypeFilterString) {
+            if (archetypeFilterString === '') {
+                store.cardsSearchResult = [];
+            } else {
+                let completeApiURL = store.apiURL + 'cardinfo.php?archetype=' + archetypeFilterString
+                axios.get(completeApiURL).then(callReturn => {
+                    store.cardsSearchResult = callReturn.data.data;
+                }).catch(error => {
+                    store.cardSearchError = true;
+                });
+            }
         }
     }
 }
