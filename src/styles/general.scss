@@ -30,3 +30,8 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+.disabled {
+    pointer-events: none;
+    filter: contrast(50%);
+}
