@@ -1,4 +1,6 @@
 <script>
+import { store } from '../store';
+
 import CardContainer from './CardContainer.vue';
 import SearcherFilters from './SearcherFilters.vue';
 
@@ -8,12 +10,19 @@ export default {
     components: {
         SearcherFilters,
         CardContainer
+    },
+
+    data() {
+        return {
+            store
+        }
     }
 }
 </script>
 
 <template>
-    <SearcherFilters />
+    <SearcherFilters :archetypes="store.archetypesList" :searchParametersError="store.searchParametersCallError"
+        @search="getFilteredCards" />
 
     <div class="cards-founded-container">
         <div class="cards-list-settings">

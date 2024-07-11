@@ -1,15 +1,31 @@
 <script>
 export default {
-    name: 'SearcherFilters'
+    name: 'SearcherFilters',
+
+    data() {
+        return {
+            currentArchetypeFilter: ''
+        }
+    },
+
+    props: {
+        archetypes: Array,
+        searchParametersError: Boolean
+    }
 }
 </script>
 
 <template>
     <menu class="searcher-filters">
-        <li>
-            <select id="filter-archrtype" required>
-                <option value="false" selected>Select a card archetype</option>
-                <option value="placeholder">placeholder</option>
+        <li class="filter-option-group" :class="{ disabled: searchParametersError }">
+            <select id="filter-archrtype" placeholder="Select a card archetype" v-model="currentArchetypeFilter"
+                @change="$emit('search', currentArchetypeFilter)" name="archetypes" required>
+                <option value="" selected>
+                    Select a card archetype
+                </option>
+                <option v-for="(archetype, index) in archetypes" :key="index" :value="archetype.archetype_name">
+                    {{ archetype.archetype_name }}
+                </option>
             </select>
         </li>
     </menu>
