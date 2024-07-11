@@ -20,7 +20,7 @@ export default {
         <li class="filter-option-group" :class="{ disabled: isFilterDisabled }">
             <label for="filter-archrtype">Archetype</label>
             <span></span>
-            <select id="filter-archrtype" placeholder="Select a card archetype" v-model="currentArchetypeFilter"
+            <select id="filter-archrtype" v-model="currentArchetypeFilter"
                 @change="$emit('search', currentArchetypeFilter)" name="archetypes" required>
                 <option value="" selected>
                     Select a card archetype
