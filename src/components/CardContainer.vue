@@ -13,7 +13,7 @@ export default {
 <template>
     <article class="card-container">
         <figure class="card-img">
-            <img src="../assets/card-bg.png" :alt="cardName">
+            <img :src="cardImg" :alt="cardName">
         </figure>
 
         <div class="card-info">
@@ -30,10 +30,17 @@ export default {
 
 <style lang="scss" scoped>
 .card-container {
-    background-color: $clr-primary;
     width: 100%;
+    height: 100%;
+    background-color: $clr-primary;
+    display: flex;
+    flex-direction: column;
+    color: $clr-neutral-ltr;
+    text-align: center;
+    overflow-wrap: anywhere;
 
     .card-img {
+        flex: 0 0 content;
         width: 100%;
         aspect-ratio: 268 / 391;
         background-image: url(../assets/card-bg.png);
@@ -50,16 +57,16 @@ export default {
     }
 
     .card-info {
+        flex: 1 0;
         padding: 1.25rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         gap: 1.25rem;
-        overflow-wrap: break-word;
 
-        .name {
-            color: $clr-neutral-ltr;
+        .archetype {
+            color: $clr-neutral-dkr;
         }
     }
 }
