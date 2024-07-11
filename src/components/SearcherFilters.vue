@@ -18,6 +18,8 @@ export default {
 <template>
     <menu class="searcher-filters">
         <li class="filter-option-group" :class="{ disabled: searchParametersError }">
+            <label for="filter-archrtype">Archetype</label>
+            <span></span>
             <select id="filter-archrtype" placeholder="Select a card archetype" v-model="currentArchetypeFilter"
                 @change="$emit('search', currentArchetypeFilter)" name="archetypes" required>
                 <option value="" selected>
@@ -34,15 +36,56 @@ export default {
 <style lang="scss" scoped>
 .searcher-filters {
     padding: 2rem;
-    color: $clr-neutral-ltr;
     font-weight: 700;
     display: flex;
     gap: 2rem;
 
-    select {
-        appearance: none;
-        padding: .5rem;
+    .filter-option-group {
+        flex-basis: calc((100% - 6rem) / 4);
+        position: relative;
+        border: 1px solid $clr-neutral-dkr;
         border-radius: .25rem;
+        background-color: $clr-neutral-ltr;
+
+        label {
+            font-size: .675rem;
+            color: $clr-neutral-ltr;
+            padding: 2px;
+            border-radius: inherit;
+            border: inherit;
+            background-color: $clr-neutral-dkr;
+            position: absolute;
+            top: 0;
+            left: .75rem;
+            transform: translate(0, -50%);
+        }
+
+        select {
+            width: 100%;
+            appearance: none;
+            border: none;
+            outline: none;
+            background-color: none;
+            border-radius: inherit;
+            padding: .75rem 1.5rem .75rem .75rem;
+            color: $clr-neutral-dkr;
+            font-weight: 600;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &::after {
+            content: '\2B9F';
+            font-size: .75rem;
+            line-height: 1;
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translate(0, -50%);
+            pointer-events: none;
+        }
     }
 }
 </style>
