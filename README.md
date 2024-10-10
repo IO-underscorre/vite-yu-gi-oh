@@ -1,5 +1,45 @@
-# Vue 3 + Vite
+# English
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Description
+A Vue.js project template developed using Vite, designed to create applications inspired by the Yu-Gi-Oh! universe. Created as part of the Boolean Full Stack Web Development course.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Purpose
+This project showcases dynamic rendering and modern development workflows using Vite and Vue 3.
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/IO-underscorre/vite-yu-gi-oh.git
+   ```
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+# Italiano
+
+## Descrizione
+Un template di progetto Vue.js sviluppato con Vite, progettato per creare applicazioni ispirate all'universo di Yu-Gi-Oh!. Realizzato come parte del corso di Full Stack Web Development di Boolean.
+
+## Scopo
+Questo progetto dimostra il rendering dinamico e i flussi di lavoro di sviluppo moderni utilizzando Vite e Vue 3.
+
+## Installazione
+1. Clona il repository:
+   ```bash
+   git clone https://github.com/IO-underscorre/vite-yu-gi-oh.git
+   ```
+2. Installa le dipendenze:
+   ```bash
+   npm install
+   ```
+3. Avvia il server di sviluppo:
+   ```bash
+   npm run dev
+   ```
